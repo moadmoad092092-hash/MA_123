@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110b">
+  <title>ROBLOX LAB | مختبر الألعاب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="الرئيسية"><span class="brand-mark">R</span><span>ROBLOX<span class="green">_LAB</span><small>GAMING TOOLKIT</small></span></a>
+    <button id="menuToggle" class="menu-toggle" aria-label="فتح القائمة">☰</button>
+    <nav id="nav">
+      <a href="#tools">الأدوات</a><a href="#about">عن المختبر</a><a href="#guide">دليل سريع</a>
+    </nav>
+    <span class="status"><i></i> جميع الأنظمة تعمل محليًا</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> GAMING UTILITIES / الإصدار 1.0</div>
+      <h1>أدواتك. لعبتك.<br><span class="glow">قواعدك الخاصة.</span></h1>
+      <p>مختبر أدوات خفيف للاعبين ومطوري Roblox. مجاني، سريع، ولا يحتاج حسابًا أو API أو ذكاءً اصطناعيًا.</p>
+      <div class="hero-actions"><a class="btn primary" href="#tools">استكشف الأدوات <span>↙</span></a><a class="btn ghost" href="#guide">كيف أستخدمه؟</a></div>
+      <div class="terminal">
+        <div class="terminal-head"><span>terminal — status</span><div><b></b><b></b><b></b></div></div>
+        <div class="terminal-body"><p><span class="term-muted">user@roblox-lab:~$</span> initialize_toolkit</p><p class="term-green">✓ Loaded: Text Styler</p><p class="term-green">✓ Loaded: Password Generator</p><p class="term-green">✓ Loaded: Luau Formatter (basic)</p><p class="term-green">✓ Mode: Offline / No API</p><p><span class="term-muted">user@roblox-lab:~$</span> <span class="cursor">_</span></p></div>
+      </div>
+      <div class="hero-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading"><div><div class="eyebrow">01 / TOOLKIT</div><h2>اختر أداتك</h2></div><p>كل الأدوات تعمل داخل متصفحك.</p></div>
+      <div class="tool-grid">
+        <article class="tool-card">
+          <div class="card-icon">Aa</div><span class="tag">TEXT TOOL</span><h3>مزخرف أسماء الألعاب</h3><p>حوّل الاسم إلى أشكال مختلفة وانسخ النتيجة بسرعة.</p>
+          <label for="nameInput">اكتب الاسم</label><input id="nameInput" maxlength="30" placeholder="مثال: ShadowPlayer">
+          <div class="results" id="nameResults" aria-live="polite"></div>
+          <button class="btn primary full" id="makeNames">إنشاء الزخارف</button>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-icon">⛨</div><span class="tag">SECURITY TOOL</span><h3>مولّد كلمات مرور</h3><p>أنشئ كلمة مرور قوية للاستخدام العام. لا تستخدمها نفسها في أكثر من حساب.</p>
+          <div class="range-row"><label for="passLength">الطول</label><strong id="lengthValue">16</strong></div>
+          <input id="passLength" type="range" min="8" max="40" value="16">
+          <div class="check-list"><label><input id="useUpper" type="checkbox" checked> أحرف كبيرة</label><label><input id="useNumbers" type="checkbox" checked> أرقام</label><label><input id="useSymbols" type="checkbox" checked> رموز</label></div>
+          <div class="output-line"><input id="passwordOutput" readonly placeholder="اضغط إنشاء"><button class="copy-btn" data-copy="passwordOutput">نسخ</button></div>
+          <button class="btn primary full" id="makePassword">إنشاء كلمة مرور</button>
+        </article>
+
+        <article class="tool-card wide">
+          <div class="card-icon">{ }</div><span class="tag">LUAU HELPER</span><h3>منسّق كود Luau البسيط</h3><p>يرتب المسافات البادئة بشكل أساسي. هذه الأداة ليست مدقّقًا كاملًا ولا تشغّل السكربت.</p>
+          <label for="codeInput">الصق الكود هنا</label>
+          <textarea id="codeInput" rows="7" spellcheck="false" placeholder="local part = workspace.Part&#10;if part then&#10;print(part.Name)&#10;end"></textarea>
+          <div class="action-row"><button class="btn primary" id="formatCode">تنسيق الكود</button><button class="btn ghost" id="clearCode">مسح</button><button class="btn ghost" data-copy="codeOutput">نسخ الناتج</button></div>
+          <label for="codeOutput">الناتج</label><textarea id="codeOutput" rows="7" readonly spellcheck="false" placeholder="سيظهر الكود المنسق هنا..."></textarea>
+          <p class="note">ملاحظة: الفحص الحقيقي لأخطاء Luau وتشغيل Roblox يحتاجان بيئة اختبار مثل Roblox Studio. لا تلصق كلمات مرور أو مفاتيح سرية.</p>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-icon">⌁</div><span class="tag">TEXT UTILITY</span><h3>أدوات النص</h3><p>حوّل النص إلى أحرف كبيرة/صغيرة أو احسب عدد الأحرف والكلمات.</p>
+          <label for="textInput">النص</label><textarea id="textInput" rows="4" placeholder="اكتب أو الصق أي نص..."></textarea>
+          <div class="action-row wrap"><button class="btn small ghost" id="toUpper">أحرف كبيرة</button><button class="btn small ghost" id="toLower">أحرف صغيرة</button><button class="btn small ghost" id="reverseText">عكس النص</button></div>
+          <div class="stats"><span>الأحرف <strong id="charCount">0</strong></span><span>الكلمات <strong id="wordCount">0</strong></span></div>
+          <div class="output-line"><input id="textOutput" readonly placeholder="النتيجة"><button class="copy-btn" data-copy="textOutput">نسخ</button></div>
+        </article>
+
+        <article class="tool-card">
+          <div class="card-icon">⌗</div><span class="tag">ROBLOX NOTES</span><h3>ملاحظات المطوّر</h3><p>اكتب ملاحظاتك عن الماب أو السكربت. تُحفظ على هذا الجهاز فقط.</p>
+          <textarea id="notesInput" rows="6" placeholder="أفكار للماب، أخطاء تريد اختبارها، مهام قادمة..."></textarea>
+          <div class="action-row"><button class="btn primary" id="saveNotes">حفظ الملاحظات</button><button class="btn ghost" id="clearNotes">حذف</button></div>
+          <p id="notesStatus" class="note" aria-live="polite">لا تُرسل الملاحظات إلى أي خادم.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="guide" class="section guide">
+      <div class="eyebrow">02 / QUICK GUIDE</div><h2>ابدأ خلال ثوانٍ</h2>
+      <div class="guide-grid"><div><span>01</span><h3>اختر أداة</h3><p>اضغط على الأداة المناسبة من لوحة المختبر.</p></div><div><span>02</span><h3>أدخل بياناتك</h3><p>اكتب الاسم أو النص أو الكود الذي تريد العمل عليه.</p></div><div><span>03</span><h3>انسخ النتيجة</h3><p>انسخ الناتج واستخدمه في المكان المناسب.</p></div></div>
+    </section>
+
+    <section id="about" class="about-box"><div><div class="eyebrow">SYSTEM INFO</div><h2>خصوصيتك أولًا.</h2><p>الموقع لا يحتوي على تسجيل دخول أو تحليلات أو اتصالات API. الملاحظات محفوظة محليًا في متصفحك فقط. حذف بيانات المتصفح قد يحذف الملاحظات.</p></div><div class="privacy-icon">⌁<span>LOCAL ONLY</span></div></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">R</span><span>ROBLOX<span class="green">_LAB</span><small>BUILT FOR CREATORS</small></span></a><span>مشروع مستقل غير تابع رسميًا لـ Roblox.</span><span>© <span id="year"></span> ROBLOX_LAB</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
